@@ -17,9 +17,7 @@ void Port_Init(uint8_t port_index)
 			GPIO_PORTA_AFSEL_R = 0; //2. don't want an alternative function (GPIO MODE)
 			GPIO_PORTA_PCTL_R = 0; // 3. don't want an alternative function
 			GPIO_PORTA_AMSEL_R = 0; // 4. not in analog mode
-			GPIO_PORTA_DIR_R |= 0xE0; // pin are output (this line is only for LCD)
 			GPIO_PORTA_DEN_R = 0Xff; // pin are digital
-			//3-push buttons
 			break;
 		case 1:
 			SET_BIT(SYSCTL_RCGCGPIO_R, 1);

@@ -20,6 +20,7 @@ int main()
 	LCD_voidWriteString(buf);
 	while(1)
 	{
+		/*--------------------Increment while pressing--------------------------*/
 		if (DIO_ReadPort(0, 0x04) == 0) // PA2 Increment
 		{
 			LCD_voidSendCommand(CLEAR_SCREEN); // clear screen to clear old number and write the new one
@@ -28,6 +29,7 @@ int main()
 			sprintf(buf, "%d", count%1000);
 			LCD_voidWriteString(buf);
 		}
+		/*--------------------Decrement on positive edge--------------------------*/
 		if (DIO_ReadPort(0, 0x08) == 0) // PA3 Decrement
 		{
 			
@@ -38,6 +40,7 @@ int main()
 			LCD_voidWriteString(buf);
 			while(DIO_ReadPort(0, 0x08) == 0);
 		}
+		/*--------------------Reset on negative edge--------------------------*/
 		if (DIO_ReadPort(0, 0x10) == 0) // PA4 Reset
 		{
 			Delay_ms(200);

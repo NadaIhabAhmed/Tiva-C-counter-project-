@@ -20,16 +20,13 @@ uint32_t delay2;
 void LCD_voidInit(void)//any pin that i will use must set it's direction first 'OUTPUT'
 {
 	//LCD initialization
-	Port_Init(1); // PORTB
+	Port_Init(1); // PORTB initialization
 	Port_SetPinDirection(PORTB, 0xFF, 1); // PORTB FROM PB0 -> PB7 ARE OUTPUT
 	
 	//SWITCHES 
-	Port_Init(0);
-	//Port_SetPinDirection(PORTA, 0xE0, 1); // PORTB FROM PB0 -> PB7 ARE OUTPUT
-	//Port_SetPinDirection(PORTA, 0X1C, 0);
-	//3-push buttons
-	//GPIO_PORTA_PUR_R |= 0X1c; //  pull up resistor 00000100
-	Port_SetPinPullUp(PORTA, 0X1C, 1);
+	Port_Init(0); //PORTA initialization
+	Port_SetPinDirection(PORTA, 0X1C, 0); // PA2, PA3, PA4 are input
+	Port_SetPinPullUp(PORTA, 0X1C, 1); // PA2, PA3, PA4 are input pull up
 	
 
 	LCD_voidSendCommand(MODE_8_BIT);// defines 5x7 pixels

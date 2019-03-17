@@ -21,7 +21,7 @@ int main()
 	while(1)
 	{
 		/*--------------------Increment while pressing--------------------------*/
-		if (DIO_ReadPort(0, 0x04) == 0) // PA2 Increment
+		if (DIO_ReadPort(0, 0x04) == STD_LOW) // PA2 Increment
 		{
 			LCD_voidSendCommand(CLEAR_SCREEN); // clear screen to clear old number and write the new one
 			Delay_ms(200); // debouning effect
@@ -30,7 +30,7 @@ int main()
 			LCD_voidWriteString(buf);
 		}
 		/*--------------------Decrement on positive edge--------------------------*/
-		if (DIO_ReadPort(0, 0x08) == 0) // PA3 Decrement
+		if (DIO_ReadPort(0, 0x08) == STD_LOW) // PA3 Decrement
 		{
 			
 			LCD_voidSendCommand(CLEAR_SCREEN);
@@ -41,10 +41,10 @@ int main()
 			while(DIO_ReadPort(0, 0x08) == 0);
 		}
 		/*--------------------Reset on negative edge--------------------------*/
-		if (DIO_ReadPort(0, 0x10) == 0) // PA4 Reset
+		if (DIO_ReadPort(0, 0x10) == STD_LOW) // PA4 Reset
 		{
 			Delay_ms(200);
-			if (DIO_ReadPort(0, 0x10) != 0) // Detect negative edge
+			if (DIO_ReadPort(0, 0x10) != STD_LOW) // Detect negative edge
 			{
 				LCD_voidSendCommand(CLEAR_SCREEN);
 				Delay_ms(200);

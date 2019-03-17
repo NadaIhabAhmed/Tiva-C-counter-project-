@@ -31,7 +31,7 @@ void DIO_WrirePort (uint8_t port_index, uint8_t pin_mask, uint8_t pins_level)
 {
 	switch(pins_level)
 	{
-		case 0: // make them low----------------CLEAR BITS
+		case STD_LOW: // make them low----------------CLEAR BITS
 			if (port_index == 0){
 				GPIO_PORTA_DATA_R &= ~(pin_mask);
 			}
@@ -73,7 +73,7 @@ void DIO_WrirePort (uint8_t port_index, uint8_t pin_mask, uint8_t pins_level)
 		
 			}	*/
 			break;
-		case 1: // make them high--------------SET BITS
+		case STD_HIGH: // make them high--------------SET BITS
 			if (port_index == 0){
 				GPIO_PORTA_DATA_R |= pin_mask;
 			}

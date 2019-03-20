@@ -27,7 +27,7 @@ uint8_t DIO_ReadPort (uint8_t port_index, uint8_t pin_mask)
 	}
 }
 
-void DIO_WrirePort (uint8_t port_index, uint8_t pin_mask, uint8_t pins_level)
+void DIO_WrirePort (uint8_t port_index, uint8_t pin_mask, level pins_level)
 {
 	switch(pins_level)
 	{

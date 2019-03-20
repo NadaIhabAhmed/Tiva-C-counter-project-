@@ -73,11 +73,11 @@ void Port_Init(uint8_t port_index)
 	}
 }
 
-void Port_SetPinDirection(uint8_t port_index, uint8_t pin_mask, uint8_t pins_direction)
+void Port_SetPinDirection(uint8_t port_index, uint8_t pin_mask, dir pins_direction)
 {
 	switch(pins_direction)
 	{
-		case 0: // -----------------INPUT
+		case PORT_PIN_IN : // -----------------INPUT
 			switch(port_index)
 			{
 				case 0: //PORTA
@@ -100,7 +100,7 @@ void Port_SetPinDirection(uint8_t port_index, uint8_t pin_mask, uint8_t pins_dir
 		
 			}	
 			break;
-		case 1: // ----------------------OUTPUT
+		case PORT_PIN_OUT : // ----------------------OUTPUT
 			switch(port_index)
 			{
 				case 0: //PORTA

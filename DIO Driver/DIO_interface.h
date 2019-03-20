@@ -18,7 +18,7 @@
 enum Dio_LevelType{
 			STD_LOW, // 0
 			STD_HIGH // 1
-};
+}level;
 
 /*DIO_ReadPort: 
 This function returns the value of the pins selected by pins_masks in the port selected by port_index 
@@ -29,7 +29,7 @@ uint8_t DIO_ReadPort (uint8_t port_index, uint8_t pin_mask);
 This function Change the value of the pins selected by pins_masks in the port selected by port_index to input pins_level
 (SET_BITS())
 */
-void DIO_WrirePort (uint8_t port_index, uint8_t pin_mask, uint8_t pin_level);
+void DIO_WrirePort (uint8_t port_index, uint8_t pin_mask, level pin_level);
 /*DIO_FlipPort: 
 This function Toggle the values of the pins selected by pins_masks in the port selected by port_index
 (TOGGLE_BITS())
